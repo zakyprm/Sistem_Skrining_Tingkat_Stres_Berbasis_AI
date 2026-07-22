@@ -1,0 +1,39 @@
+# ─── Python ───────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ─── Virtual Environment ──────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ─── Environment Variables (RAHASIA - jangan di-commit!) ─────────────
+.env
+.env.*
+!.env.example
+
+# ─── Database (berisi data user & riwayat santri) ────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ─── Model IndoBERT (ukuran besar, upload terpisah atau pakai Git LFS) ─
+backend/model_final_indobert_stres/
+
+# ─── IDE & OS ─────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─── Logs ─────────────────────────────────────────────────────────────
+*.log
+logs/

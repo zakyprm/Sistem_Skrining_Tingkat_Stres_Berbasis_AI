@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard riwayat klasifikasi tingkat stres santri untuk konselor/ustadz pendamping.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dashboard Riwayat — Konselor</title>
+
+  <!-- Fonts: Fraunces (heading) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="riwayat.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <!-- ═══ Main Content ═══ -->
+  <main class="dashboard-container" role="main">
+
+    <!-- ─── Top Bar: Back Link + Logout ─── -->
+    <div class="logout-bar" style="padding-top: var(--space-xl);">
+      <a href="/" class="back-link" id="backLink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Kembali ke Halaman Utama
+      </a>
+      <button type="button" class="btn-logout" id="btnLogout" aria-label="Logout dari dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        Logout
+      </button>
+    </div>
+
+    <!-- ─── Header ─── -->
+    <header class="dashboard-header">
+      <div class="header-badge">
+        <span class="badge-dot"></span>
+        Dashboard Konselor
+      </div>
+      <h1>Riwayat <span class="highlight">Klasifikasi</span></h1>
+      <p class="dashboard-subtitle">
+        Tinjauan log hasil skrining tingkat stres santri. 
+        Data ditampilkan secara anonim tanpa identitas santri.
+      </p>
+    </header>
+
+    <!-- ─── Summary Cards (BR-12) ─── -->
+    <section class="summary-grid" aria-label="Ringkasan klasifikasi">
+      <div class="summary-card card-Normal">
+        <div class="summary-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <div class="summary-card-info">
+          <div class="summary-card-count" id="countNormal">0</div>
+          <div class="summary-card-label">Normal</div>
+        </div>
+      </div>
+
+      <div class="summary-card card-sedang">
+        <div class="summary-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div class="summary-card-info">
+          <div class="summary-card-count" id="countSedang">0</div>
+          <div class="summary-card-label">Sedang</div>
+        </div>
+      </div>
+
+      <div class="summary-card card-tinggi">
+        <div class="summary-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <div class="summary-card-info">
+          <div class="summary-card-count" id="countTinggi">0</div>
+          <div class="summary-card-label">Tinggi</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Total Count -->
+    <div class="summary-total-wrap">
+      <span class="summary-total" id="totalCount">
+        Total: <strong>0</strong> klasifikasi
+      </span>
+    </div>
+
+    <!-- ─── Filter Section (BR-14) ─── -->
+    <section class="filter-section" aria-label="Filter data">
+      <div class="filter-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+        </svg>
+        <h3>Filter Rentang Tanggal</h3>
+      </div>
+      <div class="filter-form">
+        <div class="filter-group">
+          <label for="filterMulai">Tanggal Mulai</label>
+          <input type="date" id="filterMulai" aria-label="Tanggal mulai">
+        </div>
+        <div class="filter-group">
+          <label for="filterSelesai">Tanggal Selesai</label>
+          <input type="date" id="filterSelesai" aria-label="Tanggal selesai">
+        </div>
+        <div class="filter-actions">
+          <button type="button" class="btn-filter btn-filter-apply" id="btnApplyFilter">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Terapkan
+          </button>
+          <button type="button" class="btn-filter btn-filter-reset" id="btnResetFilter">
+            Reset
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Data Table (BR-11, BR-12) ─── -->
+    <section class="table-section" aria-label="Tabel riwayat klasifikasi">
+      <div class="table-header">
+        <h3>Log Klasifikasi</h3>
+        <span class="table-info" id="tableInfo"></span>
+      </div>
+
+      <!-- Loading State -->
+      <div class="table-loading" id="tableLoading" style="display: none;">
+        <div class="spinner-sm"></div>
+        <span>Memuat data…</span>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h3>Belum Ada Data</h3>
+        <p>Belum ada riwayat klasifikasi yang tercatat. Data akan muncul setelah santri mengirimkan narasi.</p>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table class="riwayat-table" id="riwayatTable">
+          <thead>
+            <tr>
+              <th style="width: 60px;">No</th>
+              <th style="width: 180px;">Tanggal/Waktu</th>
+              <th style="width: 140px;">Label</th>
+              <th>Confidence</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination" style="display: none;">
+        <button type="button" class="btn-page" id="btnPrev" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Sebelumnya
+        </button>
+        <span class="page-info" id="pageInfo">Halaman 1 dari 1</span>
+        <button type="button" class="btn-page" id="btnNext" disabled>
+          Selanjutnya
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="app-footer">
+    <div class="dashboard-container">
+      <p class="footer-disclaimer">
+        <strong>Catatan:</strong> Data ditampilkan secara anonim. 
+        Teks narasi santri <strong>tidak ditampilkan</strong> di dashboard ini 
+        dan tersimpan dalam bentuk terenkripsi.
+      </p>
+      <p class="footer-meta">
+        Dashboard Konselor · Aplikasi Skrining Stres Santri · IndoBERT
+      </p>
+    </div>
+  </footer>
+
+  <script src="riwayat.js"></script>
+</body>
+</html>

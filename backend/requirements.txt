@@ -1,0 +1,12 @@
+fastapi==0.115.0
+uvicorn==0.30.0
+transformers==4.45.0
+torch==2.4.0
+safetensors==0.4.4
+google-genai>=1.0.0
+python-dotenv>=1.0.0
+cryptography>=42.0.0
+aiosqlite>=0.20.0
+passlib[bcrypt]>=1.7.4
+python-jose[cryptography]>=3.3.0
+python-multipart>=0.0.9
