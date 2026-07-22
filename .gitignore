@@ -24,7 +24,7 @@ ENV/
 *.sqlite3
 
 # ─── Model IndoBERT (ukuran besar, upload terpisah atau pakai Git LFS) ─
-backend/model_final_indobert_stres/
+# backend/model_final_indobert_stres/
 
 # ─── IDE & OS ─────────────────────────────────────────────────────────
 .vscode/
