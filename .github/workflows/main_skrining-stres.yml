@@ -18,8 +18,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          lfs: true
 
       - name: Set up Python version
         uses: actions/setup-python@v5
@@ -29,7 +27,6 @@ jobs:
       # 🛠️ Local Build Section (Optional)
       # The following section in your workflow is designed to catch build issues early on the client side, before deployment. This can be helpful for debugging and validation. However, if this step significantly increases deployment time and early detection is not critical for your workflow, you may remove this section to streamline the deployment process.
       - name: Create and Start virtual environment and Install dependencies
-        working-directory: backend
         run: |
           python -m venv antenv
           source antenv/bin/activate
@@ -66,9 +63,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_86F859D354794499BDD2FF4B0E2D33F5 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C9E3FC3036F44D3CA6D86481E4E72273 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FEB5E10FF601422EAC804E25094F2FAE }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_231B17DEA9C54EE5B3BF295572C3A565 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_477B774873D240718B4F5F39250080DC }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DE5B5702979E4B66AC13AAA619DC935D }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
