@@ -1,7 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.4.0
 fastapi==0.115.0
 uvicorn==0.30.0
 transformers==4.45.0
-torch==2.4.0
 safetensors==0.4.4
 google-genai>=1.0.0
 python-dotenv>=1.0.0

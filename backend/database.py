@@ -19,8 +19,9 @@ from pathlib import Path
 import aiosqlite
 
 # Database file path — di folder yang sama dengan app.py
-DB_PATH = Path(__file__).parent / "riwayat_klasifikasi.db"
-
+DB_DIR = Path(os.environ.get("DB_DIR", Path(__file__).parent))
+DB_DIR.mkdir(parents=True, exist_ok=True)
+DB_PATH = DB_DIR / "riwayat_klasifikasi.db"
 
 async def init_db() -> None:
     """
