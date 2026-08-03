@@ -22,6 +22,7 @@ import aiosqlite
 DB_DIR = Path(os.environ.get("DB_DIR", Path(__file__).parent))
 DB_DIR.mkdir(parents=True, exist_ok=True)
 DB_PATH = DB_DIR / "riwayat_klasifikasi.db"
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:////home/site/wwwroot/database.db")
 
 async def init_db() -> None:
     """
