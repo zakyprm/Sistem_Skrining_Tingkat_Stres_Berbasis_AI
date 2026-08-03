@@ -13,7 +13,7 @@ from pathlib import Path
 import bcrypt
 
 DB_PATH = Path(__file__).parent / "riwayat_klasifikasi.db"
-
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:////home/site/wwwroot/database.db")
 
 def seed_user():
     print("=" * 50)
